@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-0c@0zsy9-v0qvqttb8)h7_p!a@f&l-r_j(zge4gi(7z=71+#gu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://pr5-zakv.onrender.com']
 
 
 # Application definition
@@ -90,7 +92,7 @@ DATABASES = {
     # }
 }
 
-#DATABASES["default"] = dj_database_url.parse("postgresql://postgres_njrt_user:VsCXF9rTJDlhrkiEROVJUyzLDl4jp6G0@dpg-ctgh680gph6c73ajje00-a.oregon-postgres.render.com/postgres_njrt")
+DATABASES["default"] = dj_database_url.parse("postgresql://postgres_njrt_user:VsCXF9rTJDlhrkiEROVJUyzLDl4jp6G0@dpg-ctgh680gph6c73ajje00-a.oregon-postgres.render.com/postgres_njrt")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
