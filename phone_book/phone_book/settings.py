@@ -90,6 +90,7 @@ DATABASES = {
     # }
 }
 
+#DATABASES["default"] = dj_database_url.parse("postgresql://postgres_njrt_user:VsCXF9rTJDlhrkiEROVJUyzLDl4jp6G0@dpg-ctgh680gph6c73ajje00-a.oregon-postgres.render.com/postgres_njrt")
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
