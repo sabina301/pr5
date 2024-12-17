@@ -1,0 +1,177 @@
+openapi: 3.0.0
+info:
+  title: Contact Book API
+  version: 1.0.0
+  
+servers:
+  - url: http://localhost:8000
+  
+paths:
+  /contacts:
+    get:
+      summary: Get all contacts
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: Contact ID
+                    username:
+                      type: string
+                      description: Username
+                    email:
+                      type: string
+                      description: Email
+                    mobile:
+                      type: string
+                      description: Mobile number
+        '404':
+          description: Not Found
+    post:
+      summary: Create a new contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Username
+                email:
+                  type: string
+                  description: Email
+                mobile:
+                  type: string
+                  description: Mobile number
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '400':
+          description: Bad Request
+    delete:
+      summary: Delete all contacts
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '404':
+          description: Not Found
+  /contacts/{user_id}:
+    get:
+      summary: Get a specific contact by ID
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+          description: Contact ID
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Contact ID
+                  username:
+                    type: string
+                    description: Username
+                  email:
+                    type: string
+                    description: Email
+                  mobile:
+                    type: string
+                    description: Mobile number
+        '404':
+          description: Not Found
+    put:
+      summary: Update a specific contact by ID
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+          description: Contact ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Username
+                email:
+                  type: string
+                  description: Email
+                mobile:
+                  type: string
+                  description: Mobile number
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      summary: Delete a specific contact by ID
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: integer
+          description: Contact ID
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Success message
+        '404':
+          description: Not Found
+                
